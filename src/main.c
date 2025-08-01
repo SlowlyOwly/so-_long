@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:51:20 by srogozin          #+#    #+#             */
-/*   Updated: 2025/07/31 19:43:08 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/01 10:25:23 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ft_printf.h"
 #include "get_next_line.h"
 
-void *mlx_ptr()
+void	*mlx_ptr(void)
 {
 	void	*mlx_ptr;
 
@@ -49,8 +49,14 @@ void	*win_ptr(void *mlx_ptr)
 	ft_printf("New window initialized.\n");
 	return(win_ptr);
 }
+static void	free_resources(void *mlx_ptr, void *win_ptr)
+{
+	ft_printf("Exiting loop and free memory.\n");
+	mlx_destroy_window(mlx_ptr, win_ptr);
+	mlx_destroy_display(mlx_ptr);
+}
 
-void start_game()
+static void	start_game()
 {
 	void	*mlx;
 	void	*win;
@@ -59,10 +65,7 @@ void start_game()
 	win = win_ptr(mlx);
 	ft_printf("Initialize loop for MiniLibX.\n");
 	mlx_loop(mlx);
-	ft_printf("Exiting loop and free memory.\n");
-	mlx_destroy_window(mlx, win);
-	mlx_destroy_display(mlx);
-	
+	free_resources(mlx, win);
 }
 
 int	main()

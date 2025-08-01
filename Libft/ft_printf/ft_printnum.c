@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:51:37 by srogozin          #+#    #+#             */
-/*   Updated: 2025/03/29 14:25:12 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/01 10:27:50 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ int	ft_prt_num_ptr(unsigned long n, unsigned int base)
 
 	count = 0;
 	symbols = "0123456789abcdef";
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n = -n;
-		count++;
-	}
+	// if (n < 0)
+	// {
+	// 	ft_putchar('-');
+	// 	n = -n;
+	// 	count++;
+	// }
 	if (n < base)
 		return (count + ft_putchar(symbols[n]));
 	count += ft_prt_num(n / base, base);
