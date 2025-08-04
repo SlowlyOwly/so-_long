@@ -6,15 +6,11 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:51:20 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/01 10:25:23 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/01 14:13:53 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "mlx.h"
-#include "libft.h"
-#include "ft_printf.h"
-#include "get_next_line.h"
 
 void	*mlx_ptr(void)
 {
@@ -24,10 +20,10 @@ void	*mlx_ptr(void)
 	if (mlx_ptr == NULL)
 	{
 		ft_printf("Error: Can not initialize MiniLibX.\n");
-		return(NULL);
+		return (NULL);
 	}
 	ft_printf("MiniLibiX initialized.\n");
-	return(mlx_ptr);
+	return (mlx_ptr);
 }
 
 void	*win_ptr(void *mlx_ptr)
@@ -44,34 +40,32 @@ void	*win_ptr(void *mlx_ptr)
 	if (win_ptr == NULL)
 	{
 		ft_printf("Error: Can not generate new window.\n");
-		return(NULL);
+		return (NULL);
 	}
 	ft_printf("New window initialized.\n");
-	return(win_ptr);
+	return (win_ptr);
 }
-static void	free_resources(void *mlx_ptr, void *win_ptr)
+
+static void	free_resources(t_game *game)
 {
 	ft_printf("Exiting loop and free memory.\n");
-	mlx_destroy_window(mlx_ptr, win_ptr);
-	mlx_destroy_display(mlx_ptr);
+	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+	mlx_destroy_display(game->mlx_ptr);
 }
 
-static void	start_game()
+static void	start_game(void)
 {
-	void	*mlx;
-	void	*win;
-	
-	mlx = mlx_ptr();
-	win = win_ptr(mlx);
+	t_game	game;
+
+	game.mlx_ptr = mlx_ptr();
+	game.win_ptr = win_ptr(game.mlx_ptr);
 	ft_printf("Initialize loop for MiniLibX.\n");
-	mlx_loop(mlx);
-	free_resources(mlx, win);
+	mlx_loop(game.mlx_ptr);
+	free_resources(&game);
 }
 
-int	main()
+int	main(void)
 {
-	
 	start_game();
-
-	return(0);
+	return (0);
 }
