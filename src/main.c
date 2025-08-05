@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:51:20 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/01 14:13:53 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/05 19:34:41 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	*win_ptr(void *mlx_ptr)
 	return (win_ptr);
 }
 
-static void	free_resources(t_game *game)
+void	free_resources(t_game *game)
 {
 	ft_printf("Exiting loop and free memory.\n");
 	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
@@ -60,6 +60,7 @@ static void	start_game(void)
 	game.mlx_ptr = mlx_ptr();
 	game.win_ptr = win_ptr(game.mlx_ptr);
 	ft_printf("Initialize loop for MiniLibX.\n");
+	setup_hooks(&game);
 	mlx_loop(game.mlx_ptr);
 	free_resources(&game);
 }
