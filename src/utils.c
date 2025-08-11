@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 15:49:49 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/08 19:44:41 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/11 17:55:39 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,18 @@ void	*ft_realloc(void *ptr, size_t new_size)
 	free(ptr);
 	return (new_ptr);
 }
-void	map_open(int *map)
+
+int	map_open(char *map_path)
 {
-	map = open("./maps/map1.ber", O_RDONLY);
-	if (*map == -1)
+	int	fd;
+
+	fd = open(map_path, O_RDONLY);
+	if (fd == -1)
 	{
 		ft_printf("Error\nCan not open map file.\n");
 		exit(1);
 	}
+	return (fd);
 }
 
 char	**load_map(char *map_file)
@@ -53,25 +57,21 @@ char	**load_map(char *map_file)
 	int		map;
 	char	*line;
 	int		i;
-	char	**temp_map;
 
 	i = 0;
 	map_data = NULL;
-	map_open(&map);
-	line = get_next_line(map);
+	map = map_open("./maps/map1.ber");
 	while (1)
-{
-    line = get_next_line(map);
-    if (line == NULL)
-        break;
-
-    temp_map = ft_realloc(map_data, (i + 2) * sizeof(char *));
-    if (temp_map == NULL)
-        return (NULL);
-    map_data = temp_map;
-    map_data[i] = line;
-    i++;
-}
+	{
+		line = get_next_line(map);
+		if (line == NULL)
+			break ;
+		map_data = ft_realloc(map_data, (i + 2) * sizeof(char *));
+		if (map_data == NULL)
+			return (NULL);
+		map_data[i] = line;
+		i++;
+	}
 	map_data[i] = NULL;
 	close(map);
 	return (map_data);

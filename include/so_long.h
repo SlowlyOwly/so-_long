@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:59:25 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/08 16:51:09 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/11 18:00:19 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,28 @@
 
 # define TILE_SIZE 64
 
-typedef struct s_game {
+typedef struct s_game
+{
 	char	**map;
-	int 	width;
-	int 	height;
+	int		width;
+	int		height;
 	int		player_x;
 	int		player_y;
 	int		collectibles;
 	int		exits;
 	void	*mlx_ptr;
 	void	*win_ptr;
-} t_game;
+}	t_game;
 
-void	*mlx_ptr();
+void	*mlx_ptr(void);
 void	*win_ptr(void	*mlx_ptr);
 void	free_resources(t_game *game);
 int		close_window(t_game *game);
-int 	esc_key(int keycode, t_game *game);
+int		esc_key(int keycode, t_game *game);
 void	setup_hooks(t_game *game);
 char	**load_map(char *map_file);
-void	*ft_realloc(void *ptr, size_t new_size)
+void	*ft_realloc(void *ptr, size_t new_size);
+int		map_open(char *map_path);
 
 
 #endif
