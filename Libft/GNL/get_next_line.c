@@ -6,11 +6,12 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:28:18 by srogozin          #+#    #+#             */
-/*   Updated: 2025/02/22 11:21:25 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/11 19:09:28 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "../libft.h"
 
 char	*find_line(int fd, char *buffer, char *temp)
 {
