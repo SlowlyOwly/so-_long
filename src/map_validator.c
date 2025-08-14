@@ -6,13 +6,13 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 17:35:42 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/14 18:22:55 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/14 20:00:38 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	map_wall_checker(char **map_data)
+int	map_shape_checker(char **map_data)
 {
 	int	i;
 	int	j;
@@ -36,4 +36,11 @@ int	map_wall_checker(char **map_data)
 		j++;
 	}
 	return (1);
+}
+
+int	map_wall_checker(char **map_data)
+{
+	int	i;
+
+	
 }
