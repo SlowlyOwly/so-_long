@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 15:49:49 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/11 18:37:49 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/14 17:34:35 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ char	**load_map(char *map_file)
 
 	i = 0;
 	map_data = NULL;
+	map_file = "maps/map1.ber";
 	map = map_open(map_file);
 	while (1)
 	{
