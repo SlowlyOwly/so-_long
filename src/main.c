@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:51:20 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/07 18:25:00 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/15 18:24:47 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,23 @@ static void	start_game(void)
 	free_resources(&game);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
+	char	**map_data;
+	
+	if (argc !=2)
+	{
+		ft_printf("Error\nNot given map name.\n");
+		return (1);
+	}
+	map_data = load_map(argv[1]);
+	if (map_data == NULL)
+		return (0);
+	if (map_checker(map_data) != 1)
+	{
+		free(map_data);
+		return (1);
+	}
 	start_game();
 	return (0);
 }
