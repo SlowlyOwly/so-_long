@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 17:35:42 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/15 19:04:57 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/19 18:43:22 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ static int	last_line_wall_checker(char **map_data)
 
 static int	left_wall_checker(char **map_data)
 {
-	int num_lines;
-	
+	int	num_lines;
+
 	num_lines = line_num_checker(map_data);
 
 	while (map_data[num_lines] != NULL)

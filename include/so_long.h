@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:59:25 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/15 19:02:51 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/19 19:42:08 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int		close_window(t_game *game);
 int		esc_key(int keycode, t_game *game);
 void	setup_hooks(t_game *game);
 char	**load_map(char *map_file);
-void	*ft_realloc(void *ptr, size_t old_size, size_t new_size);
 int		map_open(char *map_path);
 int		map_checker(char **map_data);
 
