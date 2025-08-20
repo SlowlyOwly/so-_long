@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:59:25 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/19 19:42:08 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/20 17:38:27 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,14 @@ void	setup_hooks(t_game *game);
 char	**load_map(char *map_file);
 int		map_open(char *map_path);
 int		map_checker(char **map_data);
-
+int		map_shape_checker(char **map_data);
+int		line_num_checker(char **map_data);
+int		first_line_wall_checker(char **map_data);
+int		last_line_wall_checker(char **map_data);
+int		left_wall_checker(char **map_data);
+int		right_wall_chacker(char **map_data);
+int		player_checker(char **map_data);
+int		exit_checker(char **map_data);
+int		colectible_checker(char **map_data);
 
 #endif

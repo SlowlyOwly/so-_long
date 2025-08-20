@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:51:20 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/15 18:24:47 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/20 17:37:55 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ static void	start_game(void)
 int	main(int argc, char **argv)
 {
 	char	**map_data;
-	
-	if (argc !=2)
+
+	if (argc != 2)
 	{
 		ft_printf("Error\nNot given map name.\n");
 		return (1);
