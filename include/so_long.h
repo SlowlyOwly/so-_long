@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:59:25 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/22 18:54:44 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/22 20:42:07 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,16 @@
 
 typedef struct s_game
 {
-	char	**map;
-	int		width;
-	int		height;
-	int		player_x;
-	int		player_y;
-	int		collectibles;
-	int		exits;
-	void	*mlx_ptr;
-	void	*win_ptr;
+	char		**map;
+	int			width;
+	int			height;
+	int			player_x;
+	int			player_y;
+	int			collectibles;
+	int			exits;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	t_textures	textures;
 }	t_game;
 
 typedef struct s_textures
