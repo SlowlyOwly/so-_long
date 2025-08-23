@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:51:20 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/20 17:37:55 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/23 16:19:32 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ static void	start_game(void)
 	game.win_ptr = win_ptr(game.mlx_ptr);
 	ft_printf("Initialize loop for MiniLibX.\n");
 	setup_hooks(&game);
+	load_textures(&game);
 	mlx_loop(game.mlx_ptr);
 	free_resources(&game);
 }

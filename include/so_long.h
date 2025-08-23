@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:59:25 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/22 20:42:07 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/23 16:25:07 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@
 
 # define TILE_SIZE 64
 
+typedef struct s_textures
+{
+	void	*player;
+	void	*wall;
+	void	*collectible;
+	void	*floor;
+	void	*exit;
+}	t_textures;
+
 typedef struct s_game
 {
 	char		**map;
@@ -37,15 +46,6 @@ typedef struct s_game
 	void		*win_ptr;
 	t_textures	textures;
 }	t_game;
-
-typedef struct s_textures
-{
-	void	*player;
-	void	*wall;
-	void	*collectible;
-	void	*floor;
-	void	*exit;
-}	t_textures;
 
 void	*mlx_ptr(void);
 void	*win_ptr(void	*mlx_ptr);
@@ -65,5 +65,11 @@ int		right_wall_chacker(char **map_data);
 int		player_checker(char **map_data);
 int		exit_checker(char **map_data);
 int		colectible_checker(char **map_data);
+void	*player_texture(t_game *game);
+void	*wall_texture(t_game *game);
+void	*collectibe_texture(t_game *game);
+void	*floor_texture(t_game *game);
+void	*exit_texture(t_game *game);
+int		load_textures(t_game *game);
 
 #endif
