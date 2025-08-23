@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:24:24 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/20 17:36:42 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/23 18:15:28 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	player_checker(char **map_data)
 	}
 	if (player > 1 || player < 1)
 	{
-		ft_printf("Error\nWrong number of players on the map");
+		ft_printf("Error\nWrong number of players on the map\n");
 		return (0);
 	}
 	return (1);
@@ -96,7 +96,7 @@ int	exit_checker(char **map_data)
 	}
 	if (exit < 1 || exit > 1)
 	{
-		ft_printf("Error\nWrong number of exit");
+		ft_printf("Error\nWrong number of exit\n");
 		return (0);
 	}
 	return (1);
@@ -123,7 +123,7 @@ int	colectible_checker(char **map_data)
 	}
 	if (colectible < 1)
 	{
-		ft_printf("Error\nNo collectible on map.");
+		ft_printf("Error\nNo collectible on map.\n");
 		return (0);
 	}
 	return (1);

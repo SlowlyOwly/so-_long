@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 17:35:42 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/20 17:29:05 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/23 18:14:56 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	first_line_wall_checker(char **map_data)
 	{
 		if (map_data[0][i] != '1')
 		{
-			ft_printf("Error\nMap has break in top wall");
+			ft_printf("Error\nMap has break in top wall\n");
 			return (0);
 		}
 		i++;
