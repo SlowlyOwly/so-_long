@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:51:20 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/23 16:19:32 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/08/23 18:03:38 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	*win_ptr(void *mlx_ptr)
 	int		height;
 	char	*window_title;
 
-	width = 800;
-	height = 600;
+	width = 1200;
+	height = 400;
 	window_title = "So_long";
 	win_ptr = mlx_new_window(mlx_ptr, width, height, window_title);
 	if (win_ptr == NULL)
@@ -53,36 +53,35 @@ void	free_resources(t_game *game)
 	mlx_destroy_display(game->mlx_ptr);
 }
 
-static void	start_game(void)
+static void	start_game(t_game *game)
 {
-	t_game	game;
-
-	game.mlx_ptr = mlx_ptr();
-	game.win_ptr = win_ptr(game.mlx_ptr);
+	game->mlx_ptr = mlx_ptr();
+	game->win_ptr = win_ptr(game->mlx_ptr);
 	ft_printf("Initialize loop for MiniLibX.\n");
-	setup_hooks(&game);
-	load_textures(&game);
-	mlx_loop(game.mlx_ptr);
-	free_resources(&game);
+	setup_hooks(game);
+	load_textures(game);
+	draw_map(game);
+	mlx_loop(game->mlx_ptr);
+	free_resources(game);
 }
 
 int	main(int argc, char **argv)
 {
-	char	**map_data;
+	t_game	game;
 
 	if (argc != 2)
 	{
 		ft_printf("Error\nNot given map name.\n");
 		return (1);
 	}
-	map_data = load_map(argv[1]);
-	if (map_data == NULL)
+	game.map = load_map(argv[1]);
+	if (game.map == NULL)
 		return (0);
-	if (map_checker(map_data) != 1)
+	if (map_checker(game.map) != 1)
 	{
-		free(map_data);
+		free(game.map);
 		return (1);
 	}
-	start_game();
+	start_game(&game);
 	return (0);
 }
