@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:59:25 by srogozin          #+#    #+#             */
-/*   Updated: 2025/09/07 11:48:41 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/09/07 13:34:27 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ void	draw_image(t_game *game, int col, int row);
 void	draw_map(t_game *game);
 int		win_width(t_game *game);
 int		win_height(t_game *game);
+int		window_size_check(t_game *game);
 
 #endif

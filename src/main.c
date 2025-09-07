@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:51:20 by srogozin          #+#    #+#             */
-/*   Updated: 2025/09/07 11:49:13 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/09/07 14:45:03 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,21 @@ void	free_resources(t_game *game)
 	mlx_destroy_display(game->mlx_ptr);
 }
 
-static void	start_game(t_game *game)
+static int	start_game(t_game *game)
 {
 	game->mlx_ptr = mlx_ptr();
+	if (window_size_check(game) == 0)
+	{
+		mlx_destroy_display(game->mlx_ptr);
+		return (1);
+	}
 	game->win_ptr = win_ptr(game->mlx_ptr, game);
 	ft_printf("Initialize loop for MiniLibX.\n");
 	setup_hooks(game);
 	load_textures(game);
 	draw_map(game);
 	mlx_loop(game->mlx_ptr);
-	free_resources(game);
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -76,12 +81,13 @@ int	main(int argc, char **argv)
 	}
 	game.map = load_map(argv[1]);
 	if (game.map == NULL)
-		return (0);
+		return (1);
 	if (map_checker(game.map) != 1)
 	{
 		free(game.map);
 		return (1);
 	}
 	start_game(&game);
+	free_resources(&game);
 	return (0);
 }
