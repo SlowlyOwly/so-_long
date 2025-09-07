@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 20:22:10 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/23 16:17:08 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/09/07 12:07:40 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,3 @@ void	*exit_texture(t_game *game)
 		return (NULL);
 	return (exit);
 }
-

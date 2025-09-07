@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:51:20 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/23 18:03:38 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/09/07 11:49:13 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ void	*mlx_ptr(void)
 	return (mlx_ptr);
 }
 
-void	*win_ptr(void *mlx_ptr)
+void	*win_ptr(void *mlx_ptr, t_game *game)
 {
 	void	*win_ptr;
 	int		width;
 	int		height;
 	char	*window_title;
 
-	width = 1200;
-	height = 400;
+	width = win_width(game);
+	height = win_height(game);
 	window_title = "So_long";
 	win_ptr = mlx_new_window(mlx_ptr, width, height, window_title);
 	if (win_ptr == NULL)
@@ -56,7 +56,7 @@ void	free_resources(t_game *game)
 static void	start_game(t_game *game)
 {
 	game->mlx_ptr = mlx_ptr();
-	game->win_ptr = win_ptr(game->mlx_ptr);
+	game->win_ptr = win_ptr(game->mlx_ptr, game);
 	ft_printf("Initialize loop for MiniLibX.\n");
 	setup_hooks(game);
 	load_textures(game);

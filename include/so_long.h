@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:59:25 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/23 17:47:33 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/09/07 11:48:41 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_game
 }	t_game;
 
 void	*mlx_ptr(void);
-void	*win_ptr(void	*mlx_ptr);
+void	*win_ptr(void	*mlx_ptr, t_game *game);
 void	free_resources(t_game *game);
 int		close_window(t_game *game);
 int		esc_key(int keycode, t_game *game);
@@ -73,5 +73,7 @@ void	*exit_texture(t_game *game);
 int		load_textures(t_game *game);
 void	draw_image(t_game *game, int col, int row);
 void	draw_map(t_game *game);
+int		win_width(t_game *game);
+int		win_height(t_game *game);
 
 #endif
