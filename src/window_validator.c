@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 11:23:54 by srogozin          #+#    #+#             */
-/*   Updated: 2025/09/07 14:00:11 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/09/10 17:58:22 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,13 @@ int	window_size_check(t_game *game)
 	int	screen_height;
 
 	mlx_get_screen_size(game->mlx_ptr, &screen_width, &screen_height);
-	if (screen_width < win_width(game) || screen_height < win_height(game))
-	{
-		ft_printf("Map is to large to display on screen\n");
-		return (0);
-	}
+	if (screen_width < win_width(game))
+		game->width = screen_width;
+	else
+		game->width = win_width(game);
+	if (screen_height < win_height(game))
+		game->height = screen_height;
+	else
+		game->height = win_height(game);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: srogozin <srogozin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:24:24 by srogozin          #+#    #+#             */
-/*   Updated: 2025/08/23 18:15:28 by srogozin         ###   ########.fr       */
+/*   Updated: 2025/09/10 18:01:40 by srogozin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	right_wall_chacker(char **map_data)
 	{
 		if (map_data[i][line_lenght - 1] != '1')
 		{
-			ft_printf("Error\nMap hase break in right wall.\n");
+			ft_printf("Error\nMap has break in right wall.\n");
 			return (0);
 		}
 		i++;
